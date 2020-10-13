@@ -3,11 +3,11 @@ import math
 
 class relax:
     def work(self):
-        startTable = [[5.526, 0.305, 0.887, 0.037],
-                      [0.658, 2.453, 0.678, 0.192],
-                      [0.398, 0.232, 4.957, 0.567],
-                      [0.081, 0.521, 0.192, 4.988]]
-        self.solutionVector = [0.774, 0.245, 0.343, 0.263]
+        startTable = [[2.979, 0.427, 0.406, 0.348],
+                      [0.273, 3.951, 0.217, 0.327],
+                      [0.318, 0.197, 2.875, 0.166],
+                      [0.219, 0.231, 0.187, 3.276]]
+        self.solutionVector = [0.341, 0.844, 0.131, 0.381]
 
         listXes = []
         listRes = []
@@ -78,7 +78,7 @@ class relax:
 
             check = 0
             for i in range(len(listRes)):
-                if listRes[i][iteration] <= 0.0001:
+                if math.fabs(listRes[i][iteration]) <= 0.0001:
                     check = check + 1
             if check == len(listRes):
                 maxIndex = 0

@@ -1,4 +1,5 @@
 from MethodRelax import relax
+from MethodSecant import secant
 
-a = relax()
+a = secant()
 a.work()

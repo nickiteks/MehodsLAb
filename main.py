@@ -1,5 +1,7 @@
 from MethodRelax import relax
 from MethodSecant import secant
+from QuickDescent import qiuck
 
-a = secant()
+
+a = qiuck()
 a.work()

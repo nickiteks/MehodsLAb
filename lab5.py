@@ -45,7 +45,7 @@ print(f'x = x{indexX} = {xi}')
 
 # --- метод ньютона
 x = 1
-l = 0.001
+l = float(input('введите l'))
 fpr1 = -4 + math.exp(math.fabs(x - 0.2) * x) * ((x * (x - 0.2)) / (math.fabs(x - 0.2)) + math.fabs(x - 0.2))
 fpr2 = math.exp(math.fabs(x - 0.2) * x) * (4 * math.pow(x, 2) - 0.8 * x + 0.04) + math.exp(math.fabs(x - 0.2) * x) * (
         (x - 0.2) / (math.fabs(x - 0.2)) + (math.pow(x, 3) - 0.6 * math.pow(x, 2) - 0.008) / (
@@ -68,7 +68,7 @@ print(f'x = {x}')
 # -----метод золотого сечения
 xa = xa
 xb = xb
-l = 0.001
+l = float(input('введите l'))
 
 y = xa + ((3-math.sqrt(5)) / 2) * (xb - xa)
 z = xa + xb - y

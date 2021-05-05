@@ -25,7 +25,7 @@ while trigger:
 print(f'Интервал [{xa} , {xb}]')
 
 # -----Метод равномерного поиска
-N = 7
+N = int(input('введите N'))
 functions = []
 for i in range(N):
     xi = xa + i * ((xb - xa) / (N + 1))
@@ -44,7 +44,7 @@ xi = xa + indexX * ((xb - xa) / (N + 1))
 print(f'x = x{indexX} = {xi}')
 
 # --- метод ньютона
-x = 1
+x = int(input('введите x0'))
 l = float(input('введите l'))
 fpr1 = -4 + math.exp(math.fabs(x - 0.2) * x) * ((x * (x - 0.2)) / (math.fabs(x - 0.2)) + math.fabs(x - 0.2))
 fpr2 = math.exp(math.fabs(x - 0.2) * x) * (4 * math.pow(x, 2) - 0.8 * x + 0.04) + math.exp(math.fabs(x - 0.2) * x) * (

@@ -3,9 +3,9 @@ import math as m
 import numpy as np
 import sympy as sp
 
-x1 = 0.5
-x2 = 1
-l = 0.00001
+x1 = float(input("Введите х1 "))
+x2 = float(input("Введите х2 "))
+l = float(input("Введите l "))
 new_grad = np.zeros(2)
 f = m.pow(x2 - x1, 2) + m.pow(1 - x1, 2)
 
@@ -50,8 +50,8 @@ print('\n')
 
 # Метод наискорейшего спуска
 
-x1 = 100
-x2 = 100
+x1 = float(input("Введите х1 "))
+x2 = float(input("Введите х2 "))
 
 grad = np.zeros(2)
 
@@ -59,11 +59,11 @@ iteration = 0
 
 trigger = True
 
-while trigger :
+while trigger:
     grad[0] = fpr1x1(x1, x2)
     grad[1] = fpr1x2(x1, x2)
 
-    if math.sqrt(math.pow(grad[0],2) + math.pow(grad[1],2)) < l:
+    if math.sqrt(math.pow(grad[0], 2) + math.pow(grad[1], 2)) < l:
         trigger = False
 
     x = sp.symbols('x', float=True)
@@ -84,4 +84,3 @@ while trigger :
     f = m.pow(x2 - x1, 2) + m.pow(1 - x1, 2)
     print(f'--Итерация номер: {iteration} x1 = {x1}  x2 = {x2} Значение функции : {f}')
     iteration += 1
-

@@ -4,9 +4,14 @@ import math
 x = 0
 f = -4 * x + math.exp(math.fabs(x - 0.2) * x)
 
+
+def func(x):
+    return -4 * x + math.exp(math.fabs(x - 0.2) * x)
+
+
 ###-----------Алгоритм свенна
-x0 = 1
-h = 1
+x0 = float(input('Введите x0 '))
+h = float(input('Введите h '))
 xa = x0 - h
 xb = x0 + h
 trigger = True
@@ -53,6 +58,8 @@ fpr2 = math.exp(math.fabs(x - 0.2) * x) * (4 * math.pow(x, 2) - 0.8 * x + 0.04) 
 
 trigger = True
 
+iteration = 0
+
 while trigger:
     x = x - (fpr1 / fpr2)
     fpr1 = -4 + math.exp(math.fabs(x - 0.2) * x) * ((x * (x - 0.2)) / (math.fabs(x - 0.2)) + math.fabs(x - 0.2))
@@ -60,25 +67,31 @@ while trigger:
         math.fabs(x - 0.2) * x) * (
                    (x - 0.2) / (math.fabs(x - 0.2)) + (math.pow(x, 3) - 0.6 * math.pow(x, 2) - 0.008) / (
                    math.fabs(x - 0.2) * math.pow(x - 0.2, 2)))
+    iteration += 1
+    print(f'F(x) =  {func(x)}')
     if math.fabs(fpr1) <= l:
         trigger = False
 
-print(f'x = {x}')
+print(f'x = {x} {iteration}')
 
 # -----метод золотого сечения
 xa = xa
 xb = xb
 l = float(input('введите l'))
 
-y = xa + ((3-math.sqrt(5)) / 2) * (xb - xa)
+y = xa + ((3 - math.sqrt(5)) / 2) * (xb - xa)
 z = xa + xb - y
 
 trigger = True
+
+iteration = 0
 
 while trigger:
     fy = -4 * y + math.exp(math.fabs(y - 0.2) * y)
     fz = -4 * z + math.exp(math.fabs(z - 0.2) * z)
 
+    print(f' F(y) = {fy}   F(z) = {fz}')
+    iteration += 1
     if fy <= fz:
         xb = z
         z = y
@@ -89,7 +102,7 @@ while trigger:
         z = xa + xb - z
     de = math.fabs(xb - xa)
     if de <= l:
-        x = (xa+xb)/2
+        x = (xa + xb) / 2
         trigger = False
 
-print(f'x = {x}')
+print(f'x = {x} {iteration}')
